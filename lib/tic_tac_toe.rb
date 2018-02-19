@@ -91,55 +91,6 @@ def winner(board)
 end
 
 
-
-
-def position_taken?(board, index)
-  if (board[index] == " ") then
-    return false
-  elsif (board[index] == "") then
-    return false
-  elsif (board[index] == nil) then
-    return false
-  else
-    return true
-  end
-end
-
-def move(boardArray, index, char)
-  boardArray[index] = char
-end
-
-def turn(board)
-  puts "Please enter 1-9:"
-  input = gets.strip
-  index = input_to_index(input)
-  if valid_move?(board, index) then
-    move(board, index, "X")
-  else
-    turn(board)
-  end
-  display_board(board)
-end
-
-def turn_count(board)
-  counter = 0
-  board.each do |position|
-    if position == "X" || position == "O" then
-      counter += 1 
-    end
-  end
-  return counter
-end
-
-def current_player(board)
-  count = turn_count(board)
-  if count % 2 == 0 then
-    return "X"
-  else
-    return "O"
-  end
-end
-
 def won?(board)
   winning_combo = nil
   WIN_COMBINATIONS.each do |combo|
